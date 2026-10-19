@@ -1,0 +1,7 @@
+# Tested with Python 3.13, pandas 3.0.5, numpy 2.5.3, scikit-learn 1.9.1, matplotlib 3.11.2, seaborn 0.13.2
+numpy>=1.26
+pandas>=2.2
+matplotlib>=3.8
+seaborn>=0.13
+scikit-learn>=1.4
+ipykernel
