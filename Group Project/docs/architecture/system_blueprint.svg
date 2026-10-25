@@ -1,0 +1,329 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1420" height="905" viewBox="0 0 1420 905" font-family="Liberation Sans, Arial, Helvetica, sans-serif">
+<defs><marker id="arS" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker><marker id="arD" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2E75B6"/></marker><marker id="arF" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#C00000"/></marker></defs>
+<rect x="0" y="0" width="1420" height="905" fill="#FFFFFF"/>
+<text x="14" y="28" font-size="21" font-weight="bold" fill="#1A1A1A">System Blueprint — Anti-Spoofing Login with Edge Liveness Detection on Raspberry Pi 5</text>
+<text x="14" y="56" font-size="12.5" font-weight="bold" fill="#333">Sprint:</text>
+<rect x="64" y="43" width="28.671875" height="17" rx="8.5" fill="#7F7F7F"/>
+<text x="78.3359375" y="56" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">S0</text>
+<text x="97.671875" y="56" font-size="12.5" fill="#333">Wk 4  Planning</text>
+<rect x="197.75" y="43" width="28.671875" height="17" rx="8.5" fill="#2E75B6"/>
+<text x="212.0859375" y="56" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">S1</text>
+<text x="231.421875" y="56" font-size="12.5" fill="#333">Wk 5-6  Data &amp; Pi setup</text>
+<rect x="380.796875" y="43" width="28.671875" height="17" rx="8.5" fill="#7030A0"/>
+<text x="395.1328125" y="56" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">S2</text>
+<text x="414.46875" y="56" font-size="12.5" fill="#333">Wk 7-8  Modelling</text>
+<rect x="530.5" y="43" width="28.671875" height="17" rx="8.5" fill="#C55A11"/>
+<text x="544.8359375" y="56" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">S3</text>
+<text x="564.171875" y="56" font-size="12.5" fill="#333">Wk 9-10  Integration</text>
+<rect x="692.703125" y="43" width="28.671875" height="17" rx="8.5" fill="#548235"/>
+<text x="707.0390625" y="56" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">S4</text>
+<text x="726.375" y="56" font-size="12.5" fill="#333">Wk 11-12  Evaluation &amp; MLOps</text>
+<line x1="925.828125" y1="52" x2="959.828125" y2="52" stroke="#333" stroke-width="2"  marker-end="url(#arS)"/>
+<text x="965.828125" y="56" font-size="12.5" fill="#333">data flow</text>
+<line x1="1031.859375" y1="52" x2="1065.859375" y2="52" stroke="#2E75B6" stroke-width="2" stroke-dasharray="7 4" marker-end="url(#arD)"/>
+<text x="1071.859375" y="56" font-size="12.5" fill="#333">model / code artifact</text>
+<line x1="1200.390625" y1="52" x2="1234.390625" y2="52" stroke="#C00000" stroke-width="2" stroke-dasharray="2 4" marker-end="url(#arF)"/>
+<text x="1240.390625" y="56" font-size="12.5" fill="#333">monitoring & feedback</text>
+<rect x="8" y="80" width="1404" height="272" rx="10" fill="#F2F7FC" stroke="#5B8DB8" stroke-width="1.2"/>
+<text x="24" y="216.0" font-size="13" font-weight="bold" fill="#1F4E79" text-anchor="middle" transform="rotate(-90 24 216.0)" dominant-baseline="middle">OFFLINE ML PIPELINE</text>
+<text x="40" y="216.0" font-size="11.5" fill="#1F4E79" text-anchor="middle" transform="rotate(-90 40 216.0)" dominant-baseline="middle">laptop / Google Colab</text>
+<rect x="8" y="396" width="1404" height="196" rx="10" fill="#F3FAF5" stroke="#4E9A66" stroke-width="1.2"/>
+<text x="24" y="494.0" font-size="13" font-weight="bold" fill="#1E5631" text-anchor="middle" transform="rotate(-90 24 494.0)" dominant-baseline="middle">EDGE DEVICE</text>
+<text x="40" y="494.0" font-size="11.5" fill="#1E5631" text-anchor="middle" transform="rotate(-90 40 494.0)" dominant-baseline="middle">Raspberry Pi 5 + Camera Module 3</text>
+<rect x="8" y="640" width="1404" height="182" rx="10" fill="#FFF8F0" stroke="#C77A2E" stroke-width="1.2"/>
+<text x="24" y="731.0" font-size="13" font-weight="bold" fill="#7A4310" text-anchor="middle" transform="rotate(-90 24 731.0)" dominant-baseline="middle">APPLICATION &amp; OPS</text>
+<text x="40" y="731.0" font-size="11.5" fill="#7A4310" text-anchor="middle" transform="rotate(-90 40 731.0)" dominant-baseline="middle">web UI + backend</text>
+<rect x="56.0" y="118" width="200" height="222" rx="8" fill="#FFFFFF" stroke="#5B8DB8" stroke-width="1.4"/>
+<path d="M56.0,126 a8,8 0 0 1 8,-8 h184 a8,8 0 0 1 8,8 v24.5 h-200 z" fill="#DCE9F7"/>
+<line x1="56.0" y1="150.5" x2="256.0" y2="150.5" stroke="#5B8DB8" stroke-width="0.8"/>
+<circle cx="75.0" cy="137.25" r="10.5" fill="#1F4E79"/>
+<text x="75.0" y="141.55" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">1</text>
+<text x="91.0" y="142.5" font-size="15.5" font-weight="bold" fill="#1F4E79">Data Sources</text>
+<text x="65.0" y="170.7" font-size="14.2" fill="#1F4E79">•</text>
+<text x="76.0" y="170.7" font-size="14.2" fill="#222">CelebA-Spoof: 625k</text>
+<text x="76.0" y="188.1" font-size="14.2" fill="#222">images, 10k subjects,</text>
+<text x="76.0" y="205.5" font-size="14.2" fill="#222">live:spoof ≈ 1:3 (primary)</text>
+<text x="65.0" y="222.9" font-size="14.2" fill="#1F4E79">•</text>
+<text x="76.0" y="222.9" font-size="14.2" fill="#222">Replay-Attack: print &amp;</text>
+<text x="76.0" y="240.3" font-size="14.2" fill="#222">video replay (EULA via</text>
+<text x="76.0" y="257.7" font-size="14.2" fill="#222">tutor)</text>
+<text x="65.0" y="275.09999999999997" font-size="14.2" fill="#1F4E79">•</text>
+<text x="76.0" y="275.09999999999997" font-size="14.2" fill="#222">Pi-camera sanity set</text>
+<text x="76.0" y="292.49999999999994" font-size="14.2" fill="#222">(consented team captures)</text>
+<rect x="196.984375" y="317" width="52.015625" height="17" rx="8.5" fill="#7F7F7F"/>
+<text x="222.9921875" y="329.5" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">S0–S1</text>
+<rect x="283.2" y="118" width="200" height="222" rx="8" fill="#FFFFFF" stroke="#5B8DB8" stroke-width="1.4"/>
+<path d="M283.2,126 a8,8 0 0 1 8,-8 h184 a8,8 0 0 1 8,8 v43.0 h-200 z" fill="#DCE9F7"/>
+<line x1="283.2" y1="169.0" x2="483.2" y2="169.0" stroke="#5B8DB8" stroke-width="0.8"/>
+<circle cx="302.2" cy="146.5" r="10.5" fill="#1F4E79"/>
+<text x="302.2" y="150.8" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">2</text>
+<text x="318.2" y="142.5" font-size="15.5" font-weight="bold" fill="#1F4E79">Ingestion &amp;</text>
+<text x="318.2" y="161.0" font-size="15.5" font-weight="bold" fill="#1F4E79">Versioning</text>
+<text x="292.2" y="189.2" font-size="14.2" fill="#1F4E79">•</text>
+<text x="303.2" y="189.2" font-size="14.2" fill="#222">Download scripts + licence</text>
+<text x="303.2" y="206.6" font-size="14.2" fill="#222">notes</text>
+<text x="292.2" y="224.0" font-size="14.2" fill="#1F4E79">•</text>
+<text x="303.2" y="224.0" font-size="14.2" fill="#222">Manifest: path, label,</text>
+<text x="303.2" y="241.4" font-size="14.2" fill="#222">subject ID, attack type,</text>
+<text x="303.2" y="258.8" font-size="14.2" fill="#222">lighting, hash</text>
+<text x="292.2" y="276.2" font-size="14.2" fill="#1F4E79">•</text>
+<text x="303.2" y="276.2" font-size="14.2" fill="#222">Raw data versioned with</text>
+<text x="303.2" y="293.59999999999997" font-size="14.2" fill="#222">DVC</text>
+<rect x="445.528125" y="317" width="30.671875" height="17" rx="8.5" fill="#2E75B6"/>
+<text x="460.8640625" y="329.5" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">S1</text>
+<rect x="510.4" y="118" width="200" height="222" rx="8" fill="#FFFFFF" stroke="#5B8DB8" stroke-width="1.4"/>
+<path d="M510.4,126 a8,8 0 0 1 8,-8 h184 a8,8 0 0 1 8,8 v24.5 h-200 z" fill="#DCE9F7"/>
+<line x1="510.4" y1="150.5" x2="710.4" y2="150.5" stroke="#5B8DB8" stroke-width="0.8"/>
+<circle cx="529.4" cy="137.25" r="10.5" fill="#1F4E79"/>
+<text x="529.4" y="141.55" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">3</text>
+<text x="545.4" y="142.5" font-size="15.5" font-weight="bold" fill="#1F4E79">Preprocessing</text>
+<text x="519.4" y="170.7" font-size="14.2" fill="#1F4E79">•</text>
+<text x="530.4" y="170.7" font-size="14.2" fill="#222">YuNet face detection →</text>
+<text x="530.4" y="188.1" font-size="14.2" fill="#222">crop (bbox × 2.7)</text>
+<text x="519.4" y="205.5" font-size="14.2" fill="#1F4E79">•</text>
+<text x="530.4" y="205.5" font-size="14.2" fill="#222">Resize 80×80, normalise</text>
+<text x="519.4" y="222.9" font-size="14.2" fill="#1F4E79">•</text>
+<text x="530.4" y="222.9" font-size="14.2" fill="#222">Quality filter: blur,</text>
+<text x="530.4" y="240.3" font-size="14.2" fill="#222">brightness, face size</text>
+<text x="519.4" y="257.7" font-size="14.2" fill="#1F4E79">•</text>
+<text x="530.4" y="257.7" font-size="14.2" fill="#222">Subject-disjoint split</text>
+<text x="530.4" y="275.09999999999997" font-size="14.2" fill="#222">80/10/10, test set frozen</text>
+<rect x="672.728125" y="317" width="30.671875" height="17" rx="8.5" fill="#2E75B6"/>
+<text x="688.0640625" y="329.5" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">S1</text>
+<rect x="737.5999999999999" y="118" width="200" height="222" rx="8" fill="#FFFFFF" stroke="#5B8DB8" stroke-width="1.4"/>
+<path d="M737.5999999999999,126 a8,8 0 0 1 8,-8 h184 a8,8 0 0 1 8,8 v24.5 h-200 z" fill="#DCE9F7"/>
+<line x1="737.5999999999999" y1="150.5" x2="937.5999999999999" y2="150.5" stroke="#5B8DB8" stroke-width="0.8"/>
+<circle cx="756.5999999999999" cy="137.25" r="10.5" fill="#1F4E79"/>
+<text x="756.5999999999999" y="141.55" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">4</text>
+<text x="772.5999999999999" y="142.5" font-size="15.5" font-weight="bold" fill="#1F4E79">Feature Engineering</text>
+<text x="746.5999999999999" y="170.7" font-size="14.2" fill="#1F4E79">•</text>
+<text x="757.5999999999999" y="170.7" font-size="14.2" fill="#222">Learned CNN features</text>
+<text x="757.5999999999999" y="188.1" font-size="14.2" fill="#222">(main path)</text>
+<text x="746.5999999999999" y="205.5" font-size="14.2" fill="#1F4E79">•</text>
+<text x="757.5999999999999" y="205.5" font-size="14.2" fill="#222">LBP texture histograms</text>
+<text x="757.5999999999999" y="222.9" font-size="14.2" fill="#222">(baseline)</text>
+<text x="746.5999999999999" y="240.3" font-size="14.2" fill="#1F4E79">•</text>
+<text x="757.5999999999999" y="240.3" font-size="14.2" fill="#222">Augmentation: lighting,</text>
+<text x="757.5999999999999" y="257.7" font-size="14.2" fill="#222">blur, JPEG, colour shift</text>
+<rect x="878.5843749999999" y="317" width="52.015625" height="17" rx="8.5" fill="#2E75B6"/>
+<text x="904.5921874999999" y="329.5" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">S1–S2</text>
+<rect x="964.8" y="118" width="200" height="222" rx="8" fill="#FFFFFF" stroke="#5B8DB8" stroke-width="1.4"/>
+<path d="M964.8,126 a8,8 0 0 1 8,-8 h184 a8,8 0 0 1 8,8 v24.5 h-200 z" fill="#DCE9F7"/>
+<line x1="964.8" y1="150.5" x2="1164.8" y2="150.5" stroke="#5B8DB8" stroke-width="0.8"/>
+<circle cx="983.8" cy="137.25" r="10.5" fill="#1F4E79"/>
+<text x="983.8" y="141.55" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">5</text>
+<text x="999.8" y="142.5" font-size="15.5" font-weight="bold" fill="#1F4E79">Training &amp; Selection</text>
+<text x="973.8" y="170.7" font-size="14.2" fill="#1F4E79">•</text>
+<text x="984.8" y="170.7" font-size="14.2" fill="#222">Baselines: LBP+SVM,</text>
+<text x="984.8" y="188.1" font-size="14.2" fill="#222">pre-trained MiniFASNet</text>
+<text x="973.8" y="205.5" font-size="14.2" fill="#1F4E79">•</text>
+<text x="984.8" y="205.5" font-size="14.2" fill="#222">Fine-tune MiniFASNet /</text>
+<text x="984.8" y="222.9" font-size="14.2" fill="#222">MobileNetV3-S</text>
+<text x="973.8" y="240.3" font-size="14.2" fill="#1F4E79">•</text>
+<text x="984.8" y="240.3" font-size="14.2" fill="#222">Class-weighted loss (1:3</text>
+<text x="984.8" y="257.7" font-size="14.2" fill="#222">imbalance)</text>
+<text x="973.8" y="275.09999999999997" font-size="14.2" fill="#1F4E79">•</text>
+<text x="984.8" y="275.09999999999997" font-size="14.2" fill="#222">MLflow experiment</text>
+<text x="984.8" y="292.49999999999994" font-size="14.2" fill="#222">tracking</text>
+<rect x="1127.128125" y="317" width="30.671875" height="17" rx="8.5" fill="#7030A0"/>
+<text x="1142.4640625" y="329.5" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">S2</text>
+<rect x="1192.0" y="118" width="200" height="222" rx="8" fill="#FFFFFF" stroke="#5B8DB8" stroke-width="1.4"/>
+<path d="M1192.0,126 a8,8 0 0 1 8,-8 h184 a8,8 0 0 1 8,8 v43.0 h-200 z" fill="#DCE9F7"/>
+<line x1="1192.0" y1="169.0" x2="1392.0" y2="169.0" stroke="#5B8DB8" stroke-width="0.8"/>
+<circle cx="1211.0" cy="146.5" r="10.5" fill="#1F4E79"/>
+<text x="1211.0" y="150.8" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">6</text>
+<text x="1227.0" y="142.5" font-size="15.5" font-weight="bold" fill="#1F4E79">Evaluation &amp;</text>
+<text x="1227.0" y="161.0" font-size="15.5" font-weight="bold" fill="#1F4E79">Packaging</text>
+<text x="1201.0" y="189.2" font-size="14.2" fill="#1F4E79">•</text>
+<text x="1212.0" y="189.2" font-size="14.2" fill="#222">Threshold chosen on</text>
+<text x="1212.0" y="206.6" font-size="14.2" fill="#222">validation (BPCER ≤ 5%)</text>
+<text x="1201.0" y="224.0" font-size="14.2" fill="#1F4E79">•</text>
+<text x="1212.0" y="224.0" font-size="14.2" fill="#222">APCER / BPCER / ACER /</text>
+<text x="1212.0" y="241.4" font-size="14.2" fill="#222">AUC per attack type</text>
+<text x="1201.0" y="258.8" font-size="14.2" fill="#1F4E79">•</text>
+<text x="1212.0" y="258.8" font-size="14.2" fill="#222">ONNX → INT8, versioned</text>
+<text x="1212.0" y="276.2" font-size="14.2" fill="#222">model + config</text>
+<rect x="1332.984375" y="317" width="52.015625" height="17" rx="8.5" fill="#7030A0"/>
+<text x="1358.9921875" y="329.5" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">S2–S4</text>
+<rect x="56.0" y="412" width="245" height="166" rx="8" fill="#FFFFFF" stroke="#4E9A66" stroke-width="1.4"/>
+<path d="M56.0,420 a8,8 0 0 1 8,-8 h229 a8,8 0 0 1 8,8 v24.5 h-245 z" fill="#DCF0E2"/>
+<line x1="56.0" y1="444.5" x2="301.0" y2="444.5" stroke="#4E9A66" stroke-width="0.8"/>
+<circle cx="75.0" cy="431.25" r="10.5" fill="#1E5631"/>
+<text x="75.0" y="435.55" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">7</text>
+<text x="91.0" y="436.5" font-size="15.5" font-weight="bold" fill="#1E5631">Camera Capture</text>
+<text x="65.0" y="464.7" font-size="14.2" fill="#1E5631">•</text>
+<text x="76.0" y="464.7" font-size="14.2" fill="#222">picamera2; user taps Start</text>
+<text x="76.0" y="482.09999999999997" font-size="14.2" fill="#222">(consent)</text>
+<text x="65.0" y="499.49999999999994" font-size="14.2" fill="#1E5631">•</text>
+<text x="76.0" y="499.49999999999994" font-size="14.2" fill="#222">10–15 frames in ~1.5 s</text>
+<text x="65.0" y="516.9" font-size="14.2" fill="#1E5631">•</text>
+<text x="76.0" y="516.9" font-size="14.2" fill="#222">Handles no camera / timeout</text>
+<rect x="242.0" y="555" width="52.0" height="17" rx="8.5" fill="#2E75B6"/>
+<text x="268.0" y="567.5" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">S1, S3</text>
+<rect x="328.75" y="412" width="245" height="166" rx="8" fill="#FFFFFF" stroke="#4E9A66" stroke-width="1.4"/>
+<path d="M328.75,420 a8,8 0 0 1 8,-8 h229 a8,8 0 0 1 8,8 v24.5 h-245 z" fill="#DCF0E2"/>
+<line x1="328.75" y1="444.5" x2="573.75" y2="444.5" stroke="#4E9A66" stroke-width="0.8"/>
+<circle cx="347.75" cy="431.25" r="10.5" fill="#1E5631"/>
+<text x="347.75" y="435.55" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">8</text>
+<text x="363.75" y="436.5" font-size="15.5" font-weight="bold" fill="#1E5631">On-device Preprocessing</text>
+<text x="337.75" y="464.7" font-size="14.2" fill="#1E5631">•</text>
+<text x="348.75" y="464.7" font-size="14.2" fill="#222">Same preprocessing module as</text>
+<text x="348.75" y="482.09999999999997" font-size="14.2" fill="#222">training</text>
+<text x="337.75" y="499.49999999999994" font-size="14.2" fill="#1E5631">•</text>
+<text x="348.75" y="499.49999999999994" font-size="14.2" fill="#222">Checks: 1 face, light, blur, size</text>
+<text x="337.75" y="516.9" font-size="14.2" fill="#1E5631">•</text>
+<text x="348.75" y="516.9" font-size="14.2" fill="#222">Crop + normalise each frame</text>
+<rect x="536.078125" y="555" width="30.671875" height="17" rx="8.5" fill="#C55A11"/>
+<text x="551.4140625" y="567.5" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">S3</text>
+<rect x="601.5" y="412" width="245" height="166" rx="8" fill="#FFFFFF" stroke="#4E9A66" stroke-width="1.4"/>
+<path d="M601.5,420 a8,8 0 0 1 8,-8 h229 a8,8 0 0 1 8,8 v24.5 h-245 z" fill="#DCF0E2"/>
+<line x1="601.5" y1="444.5" x2="846.5" y2="444.5" stroke="#4E9A66" stroke-width="0.8"/>
+<circle cx="620.5" cy="431.25" r="10.5" fill="#1E5631"/>
+<text x="620.5" y="435.55" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">9</text>
+<text x="636.5" y="436.5" font-size="15.5" font-weight="bold" fill="#1E5631">PAD Inference (ML model)</text>
+<text x="610.5" y="464.7" font-size="14.2" fill="#1E5631">•</text>
+<text x="621.5" y="464.7" font-size="14.2" fill="#222">ONNX Runtime, INT8 model on Pi</text>
+<text x="621.5" y="482.09999999999997" font-size="14.2" fill="#222">CPU</text>
+<text x="610.5" y="499.49999999999994" font-size="14.2" fill="#1E5631">•</text>
+<text x="621.5" y="499.49999999999994" font-size="14.2" fill="#222">Live score p_live per frame</text>
+<text x="610.5" y="516.9" font-size="14.2" fill="#1E5631">•</text>
+<text x="621.5" y="516.9" font-size="14.2" fill="#222">Temporal aggregation (median)</text>
+<rect x="787.484375" y="555" width="52.015625" height="17" rx="8.5" fill="#7030A0"/>
+<text x="813.4921875" y="567.5" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">S2–S3</text>
+<rect x="874.25" y="412" width="245" height="166" rx="8" fill="#FFFFFF" stroke="#4E9A66" stroke-width="1.4"/>
+<path d="M874.25,420 a8,8 0 0 1 8,-8 h229 a8,8 0 0 1 8,8 v24.5 h-245 z" fill="#DCF0E2"/>
+<line x1="874.25" y1="444.5" x2="1119.25" y2="444.5" stroke="#4E9A66" stroke-width="0.8"/>
+<circle cx="893.25" cy="431.25" r="10.5" fill="#1E5631"/>
+<text x="893.25" y="435.55" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">10</text>
+<text x="909.25" y="436.5" font-size="15.5" font-weight="bold" fill="#1E5631">Decision Engine (output)</text>
+<text x="883.25" y="464.7" font-size="14.2" fill="#1E5631">•</text>
+<text x="894.25" y="464.7" font-size="14.2" fill="#222">PASS / SPOOF SUSPECTED /</text>
+<text x="894.25" y="482.09999999999997" font-size="14.2" fill="#222">RETRY / TECH FAILURE</text>
+<text x="883.25" y="499.49999999999994" font-size="14.2" fill="#1E5631">•</text>
+<text x="894.25" y="499.49999999999994" font-size="14.2" fill="#222">Fail-closed, retry limit, rate limit</text>
+<text x="883.25" y="516.9" font-size="14.2" fill="#1E5631">•</text>
+<text x="894.25" y="516.9" font-size="14.2" fill="#222">Result signed with nonce + model</text>
+<text x="894.25" y="534.3" font-size="14.2" fill="#222">version</text>
+<rect x="1081.578125" y="555" width="30.671875" height="17" rx="8.5" fill="#C55A11"/>
+<text x="1096.9140625" y="567.5" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">S3</text>
+<rect x="1147.0" y="412" width="245" height="166" rx="8" fill="#FFFFFF" stroke="#4E9A66" stroke-width="1.4"/>
+<path d="M1147.0,420 a8,8 0 0 1 8,-8 h229 a8,8 0 0 1 8,8 v24.5 h-245 z" fill="#DCF0E2"/>
+<line x1="1147.0" y1="444.5" x2="1392.0" y2="444.5" stroke="#4E9A66" stroke-width="0.8"/>
+<circle cx="1166.0" cy="431.25" r="10.5" fill="#1E5631"/>
+<text x="1166.0" y="435.55" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">11</text>
+<text x="1182.0" y="436.5" font-size="15.5" font-weight="bold" fill="#1E5631">Edge Telemetry</text>
+<text x="1156.0" y="464.7" font-size="14.2" fill="#1E5631">•</text>
+<text x="1167.0" y="464.7" font-size="14.2" fill="#222">Latency p50/p95, CPU temp,</text>
+<text x="1167.0" y="482.09999999999997" font-size="14.2" fill="#222">throttling</text>
+<text x="1156.0" y="499.49999999999994" font-size="14.2" fill="#1E5631">•</text>
+<text x="1167.0" y="499.49999999999994" font-size="14.2" fill="#222">Score &amp; image-quality statistics</text>
+<text x="1156.0" y="516.9" font-size="14.2" fill="#1E5631">•</text>
+<text x="1167.0" y="516.9" font-size="14.2" fill="#222">No raw face images stored</text>
+<rect x="1354.328125" y="555" width="30.671875" height="17" rx="8.5" fill="#C55A11"/>
+<text x="1369.6640625" y="567.5" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">S3</text>
+<rect x="56.0" y="656" width="290" height="152" rx="8" fill="#FFFFFF" stroke="#C77A2E" stroke-width="1.4"/>
+<path d="M56.0,664 a8,8 0 0 1 8,-8 h274 a8,8 0 0 1 8,8 v24.5 h-290 z" fill="#FBE7D2"/>
+<line x1="56.0" y1="688.5" x2="346.0" y2="688.5" stroke="#C77A2E" stroke-width="0.8"/>
+<circle cx="75.0" cy="675.25" r="10.5" fill="#7A4310"/>
+<text x="75.0" y="679.55" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">12</text>
+<text x="91.0" y="680.5" font-size="15.5" font-weight="bold" fill="#7A4310">Web Login UI</text>
+<text x="65.0" y="708.7" font-size="14.2" fill="#7A4310">•</text>
+<text x="76.0" y="708.7" font-size="14.2" fill="#222">Username + password form</text>
+<text x="65.0" y="726.1" font-size="14.2" fill="#7A4310">•</text>
+<text x="76.0" y="726.1" font-size="14.2" fill="#222">Camera guidance &amp; live status</text>
+<text x="65.0" y="743.5" font-size="14.2" fill="#7A4310">•</text>
+<text x="76.0" y="743.5" font-size="14.2" fill="#222">Clear retry / failure messages</text>
+<rect x="308.328125" y="785" width="30.671875" height="17" rx="8.5" fill="#C55A11"/>
+<text x="323.6640625" y="797.5" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">S3</text>
+<rect x="404.6666666666667" y="656" width="290" height="152" rx="8" fill="#FFFFFF" stroke="#C77A2E" stroke-width="1.4"/>
+<path d="M404.6666666666667,664 a8,8 0 0 1 8,-8 h274 a8,8 0 0 1 8,8 v24.5 h-290 z" fill="#FBE7D2"/>
+<line x1="404.6666666666667" y1="688.5" x2="694.6666666666667" y2="688.5" stroke="#C77A2E" stroke-width="0.8"/>
+<circle cx="423.6666666666667" cy="675.25" r="10.5" fill="#7A4310"/>
+<text x="423.6666666666667" y="679.55" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">13</text>
+<text x="439.6666666666667" y="680.5" font-size="15.5" font-weight="bold" fill="#7A4310">Backend Auth API (FastAPI)</text>
+<text x="413.6666666666667" y="708.7" font-size="14.2" fill="#7A4310">•</text>
+<text x="424.6666666666667" y="708.7" font-size="14.2" fill="#222">Checks credentials, issues nonce</text>
+<text x="413.6666666666667" y="726.1" font-size="14.2" fill="#7A4310">•</text>
+<text x="424.6666666666667" y="726.1" font-size="14.2" fill="#222">Verifies Pi signature &amp; freshness</text>
+<text x="413.6666666666667" y="743.5" font-size="14.2" fill="#7A4310">•</text>
+<text x="424.6666666666667" y="743.5" font-size="14.2" fill="#222">Final login decision + audit log</text>
+<rect x="656.9947916666667" y="785" width="30.671875" height="17" rx="8.5" fill="#C55A11"/>
+<text x="672.3307291666667" y="797.5" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">S3</text>
+<rect x="753.3333333333334" y="656" width="290" height="152" rx="8" fill="#FFFFFF" stroke="#C77A2E" stroke-width="1.4"/>
+<path d="M753.3333333333334,664 a8,8 0 0 1 8,-8 h274 a8,8 0 0 1 8,8 v24.5 h-290 z" fill="#FBE7D2"/>
+<line x1="753.3333333333334" y1="688.5" x2="1043.3333333333335" y2="688.5" stroke="#C77A2E" stroke-width="0.8"/>
+<circle cx="772.3333333333334" cy="675.25" r="10.5" fill="#7A4310"/>
+<text x="772.3333333333334" y="679.55" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">14</text>
+<text x="788.3333333333334" y="680.5" font-size="15.5" font-weight="bold" fill="#7A4310">Logging &amp; Monitoring</text>
+<text x="762.3333333333334" y="708.7" font-size="14.2" fill="#7A4310">•</text>
+<text x="773.3333333333334" y="708.7" font-size="14.2" fill="#222">Attempt logs: decision, score, model ver.</text>
+<text x="762.3333333333334" y="726.1" font-size="14.2" fill="#7A4310">•</text>
+<text x="773.3333333333334" y="726.1" font-size="14.2" fill="#222">Dashboard: pass / spoof / retry rates,</text>
+<text x="773.3333333333334" y="743.5" font-size="14.2" fill="#222">latency</text>
+<text x="762.3333333333334" y="760.9" font-size="14.2" fill="#7A4310">•</text>
+<text x="773.3333333333334" y="760.9" font-size="14.2" fill="#222">Weekly red-team audit set (labelled)</text>
+<rect x="984.3177083333335" y="785" width="52.015625" height="17" rx="8.5" fill="#C55A11"/>
+<text x="1010.3255208333335" y="797.5" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">S3–S4</text>
+<rect x="1102.0" y="656" width="290" height="152" rx="8" fill="#FFFFFF" stroke="#C77A2E" stroke-width="1.4"/>
+<path d="M1102.0,664 a8,8 0 0 1 8,-8 h274 a8,8 0 0 1 8,8 v24.5 h-290 z" fill="#FBE7D2"/>
+<line x1="1102.0" y1="688.5" x2="1392.0" y2="688.5" stroke="#C77A2E" stroke-width="0.8"/>
+<circle cx="1121.0" cy="675.25" r="10.5" fill="#7A4310"/>
+<text x="1121.0" y="679.55" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">15</text>
+<text x="1137.0" y="680.5" font-size="15.5" font-weight="bold" fill="#7A4310">Drift Detection &amp; Retraining</text>
+<text x="1111.0" y="708.7" font-size="14.2" fill="#7A4310">•</text>
+<text x="1122.0" y="708.7" font-size="14.2" fill="#222">Data drift: PSI on quality &amp; score features</text>
+<text x="1111.0" y="726.1" font-size="14.2" fill="#7A4310">•</text>
+<text x="1122.0" y="726.1" font-size="14.2" fill="#222">Concept drift: APCER / BPCER on audit</text>
+<text x="1122.0" y="743.5" font-size="14.2" fill="#222">set</text>
+<text x="1111.0" y="760.9" font-size="14.2" fill="#7A4310">•</text>
+<text x="1122.0" y="760.9" font-size="14.2" fill="#222">Triggers retraining (time / performance /</text>
+<text x="1122.0" y="778.3" font-size="14.2" fill="#222">drift)</text>
+<rect x="1354.328125" y="785" width="30.671875" height="17" rx="8.5" fill="#548235"/>
+<text x="1369.6640625" y="797.5" font-size="12" font-weight="bold" fill="#fff" text-anchor="middle">S4</text>
+<path d="M256.0,229.0 L283.2,229.0" fill="none" stroke="#333" stroke-width="1.8"  marker-end="url(#arS)"/>
+<path d="M483.2,229.0 L510.4,229.0" fill="none" stroke="#333" stroke-width="1.8"  marker-end="url(#arS)"/>
+<path d="M710.4,229.0 L737.6,229.0" fill="none" stroke="#333" stroke-width="1.8"  marker-end="url(#arS)"/>
+<path d="M937.6,229.0 L964.8,229.0" fill="none" stroke="#333" stroke-width="1.8"  marker-end="url(#arS)"/>
+<path d="M1164.8,229.0 L1192.0,229.0" fill="none" stroke="#333" stroke-width="1.8"  marker-end="url(#arS)"/>
+<path d="M301.0,495.0 L328.8,495.0" fill="none" stroke="#333" stroke-width="1.8"  marker-end="url(#arS)"/>
+<path d="M573.8,495.0 L601.5,495.0" fill="none" stroke="#333" stroke-width="1.8"  marker-end="url(#arS)"/>
+<path d="M846.5,495.0 L874.2,495.0" fill="none" stroke="#333" stroke-width="1.8"  marker-end="url(#arS)"/>
+<path d="M1119.2,495.0 L1147.0,495.0" fill="none" stroke="#C00000" stroke-width="1.8" stroke-dasharray="2.5 3.5" marker-end="url(#arF)"/>
+<path d="M685.4,340.0 L685.4,364.0 L513.8,364.0 L513.8,412.0" fill="none" stroke="#2E75B6" stroke-width="1.8" stroke-dasharray="7 4" marker-end="url(#arD)"/>
+<rect x="691.4" y="349" width="160.671875" height="14" fill="#FFFFFF" opacity="0.85"/>
+<text x="693.4" y="360" font-size="12" font-weight="bold" fill="#2E75B6" text-anchor="start">shared preprocessing code</text>
+<path d="M1292.0,340.0 L1292.0,382.0 L786.5,382.0 L786.5,412.0" fill="none" stroke="#2E75B6" stroke-width="1.8" stroke-dasharray="7 4" marker-end="url(#arD)"/>
+<rect x="799.5" y="367" width="456.734375" height="14" fill="#FFFFFF" opacity="0.85"/>
+<text x="801.5" y="378" font-size="12" font-weight="bold" fill="#2E75B6" text-anchor="start">deploy model package vX.Y (ONNX INT8 + threshold config) via GitHub Release</text>
+<path d="M434.7,656.0 L434.7,606.0 L178.5,606.0 L178.5,578.0" fill="none" stroke="#333" stroke-width="1.8"  marker-end="url(#arS)"/>
+<rect x="186.5" y="591" width="110.0" height="14" fill="#FFFFFF" opacity="0.85"/>
+<text x="188.5" y="602" font-size="12" font-weight="bold" fill="#333" text-anchor="start">② session + nonce</text>
+<path d="M996.8,578.0 L996.8,624.0 L654.7,624.0 L654.7,656.0" fill="none" stroke="#333" stroke-width="1.8"  marker-end="url(#arS)"/>
+<rect x="664.6666666666667" y="609" width="277.625" height="14" fill="#FFFFFF" opacity="0.85"/>
+<text x="666.6666666666667" y="620" font-size="12" font-weight="bold" fill="#333" text-anchor="start">③ signed result (decision, score, model version)</text>
+<path d="M1247.0,578.0 L1247.0,614.0 L1018.3,614.0 L1018.3,656.0" fill="none" stroke="#C00000" stroke-width="1.8" stroke-dasharray="2.5 3.5" marker-end="url(#arF)"/>
+<rect x="1028.3333333333335" y="599" width="160.6875" height="14" fill="#FFFFFF" opacity="0.85"/>
+<text x="1030.3333333333335" y="610" font-size="12" font-weight="bold" fill="#C00000" text-anchor="start">telemetry (aggregates only)</text>
+<path d="M346.0,708.0 L404.7,708.0" fill="none" stroke="#333" stroke-width="1.8"  marker-end="url(#arS)"/>
+<rect x="352.84895833333337" y="691" width="44.96875" height="14" fill="#FFFFFF" opacity="0.85"/>
+<text x="375.33333333333337" y="702" font-size="12" font-weight="bold" fill="#333" text-anchor="middle">① login</text>
+<path d="M404.7,768.0 L346.0,768.0" fill="none" stroke="#333" stroke-width="1.8"  marker-end="url(#arS)"/>
+<rect x="350.83333333333337" y="751" width="49.0" height="14" fill="#FFFFFF" opacity="0.85"/>
+<text x="375.33333333333337" y="762" font-size="12" font-weight="bold" fill="#333" text-anchor="middle">④ result</text>
+<path d="M694.7,732.0 L753.3,732.0" fill="none" stroke="#C00000" stroke-width="1.8" stroke-dasharray="2.5 3.5" marker-end="url(#arF)"/>
+<rect x="703.5078125" y="715.0" width="40.984375" height="14" fill="#FFFFFF" opacity="0.85"/>
+<text x="724.0" y="726.0" font-size="12" font-weight="bold" fill="#C00000" text-anchor="middle">⑤ logs</text>
+<path d="M1043.3,732.0 L1102.0,732.0" fill="none" stroke="#C00000" stroke-width="1.8" stroke-dasharray="2.5 3.5" marker-end="url(#arF)"/>
+<rect x="1049.3229166666667" y="715.0" width="46.6875" height="14" fill="#FFFFFF" opacity="0.85"/>
+<text x="1072.6666666666667" y="726.0" font-size="12" font-weight="bold" fill="#C00000" text-anchor="middle">metrics</text>
+<path d="M1392.0,732.0 L1416.0,732.0 L1416.0,101.0 L383.2,101.0 L383.2,118.0" fill="none" stroke="#C00000" stroke-width="1.8" stroke-dasharray="2.5 3.5" marker-end="url(#arF)"/>
+<rect x="393.2" y="85" width="650.03125" height="14" fill="#FFFFFF" opacity="0.85"/>
+<text x="395.2" y="96" font-size="12" font-weight="bold" fill="#C00000" text-anchor="start">⑥ retraining trigger (monthly, performance drop or drift) → add new consented data, retrain, re-evaluate, redeploy</text>
+<rect x="8" y="834" width="1404" height="63" rx="10" fill="#EEEAF6" stroke="#6B5B95" stroke-width="1.2"/>
+<text x="22" y="856" font-size="14" font-weight="bold" fill="#3F3268">DevOps &amp; MLOps backbone (all sprints)</text>
+<text x="22" y="878" font-size="13" fill="#2B2250">■ GitHub: code, configs, PR review, release tags</text>
+<text x="327.59375" y="878" font-size="13" fill="#2B2250">■ GitHub Actions: lint, unit tests, eval gate, release build</text>
+<text x="675.125" y="878" font-size="13" fill="#2B2250">■ DVC: dataset &amp; model-weight versions</text>
+<text x="935.1875" y="878" font-size="13" fill="#2B2250">■ MLflow: experiments + model registry</text>
+<text x="1188.359375" y="878" font-size="13" fill="#2B2250">■ Jira: backlog, sprints, user stories</text>
+</svg>

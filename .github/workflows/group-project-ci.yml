@@ -1,0 +1,29 @@
+# Initial CI skeleton for the COS40007 group project (Anti-Spoofing Login).
+# Full CI/CD (evaluation gate, release to the Raspberry Pi) is implemented in a later task.
+name: Group Project CI
+
+on:
+  pull_request:
+    paths: ["Group Project/**"]
+  push:
+    branches: [main]
+    paths: ["Group Project/**"]
+
+defaults:
+  run:
+    working-directory: "Group Project"
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Lint
+        run: ruff check .
+      - name: Unit tests
+        run: pytest -q
