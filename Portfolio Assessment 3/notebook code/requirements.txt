@@ -1,0 +1,9 @@
+# Python 3.13 (TensorFlow 2.21 provides Windows wheels for Python 3.10-3.13)
+numpy>=1.26
+pandas>=2.2
+matplotlib>=3.8
+seaborn>=0.13
+scikit-learn>=1.4
+tensorflow>=2.20
+joblib
+ipykernel
