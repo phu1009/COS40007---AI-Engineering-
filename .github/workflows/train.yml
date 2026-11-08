@@ -1,0 +1,60 @@
+name: Train ML Model
+
+on:
+  push:
+    branches: [ main ]        # runs every time we push to main
+  pull_request:
+    branches: [ main ]        # runs on pull requests to main
+  workflow_dispatch:          # allows a manual run from the GitHub Actions UI
+
+jobs:
+  train:
+    runs-on: ubuntu-latest    # GitHub-hosted Linux runner (free)
+
+    steps:
+      # 1. Check out the repository code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # 3. Cache pip packages so repeat runs are faster
+      - name: Cache pip dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      # 4. Install dependencies from requirements.txt
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # 5. Train the anti-spoofing (PAD) model - runs model.py
+      - name: Train model
+        run: python model.py
+
+      # 6. Upload the plot, metrics and trained model as artefacts
+      #    so they can be downloaded from the GitHub Actions UI
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        with:
+          name: model-results
+          path: |
+            model_results.png
+            metrics.txt
+            pad_model.keras
+          if-no-files-found: error
+
+      # 7. Show the metrics on the run's summary page
+      - name: Show metrics in run summary
+        run: |
+          echo '### Group 3 - Anti-Spoofing model metrics' >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          cat metrics.txt >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
