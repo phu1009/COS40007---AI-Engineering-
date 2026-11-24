@@ -1,23 +1,44 @@
 # Versioned runtime configuration for the anti-spoofing (PAD) check.
 # Any change here is committed and released with a new config_version.
-config_version: 1
+config_version: 2
 model:
   name: minifasnet-baseline
   version: 0.1.0          # pad-model vMAJOR.MINOR.PATCH
-  format: onnx-int8
+  format: onnx-fp32       # INT8 after calibration on project data
+  source: pre-trained MiniFASNet, Minivision Silent-Face-Anti-Spoofing (Apache-2.0)
+  live_class_index: 1     # softmax output [spoof, live, spoof]
+  files:                  # ensemble: p_live is the mean over these models
+    - path: models/minifasnet_v2_2.7_80x80.onnx
+      crop_scale: 2.7
+      sha256: 67db1c9886607f10c3c361d0ac0cfb298ccb588c18acea96249fb253141e1401
+    - path: models/minifasnet_v1se_4.0_80x80.onnx
+      crop_scale: 4.0
+      sha256: 3ac219aa9d06d90e3c8de71cd3faafc26168b8762ca305c562aac40b9d41e342
 decision:
   threshold: 0.50         # placeholder - final value chosen on validation data (BPCER <= 5%)
   frames_per_attempt: 12
+  min_valid_frames: 6     # fewer valid frames before the timeout -> RETRY
   aggregation: median
   attempt_timeout_s: 5
   retry_limit: 3
   lockout_minutes: 5
 preprocessing:
   face_detector: yunet
-  crop_scale: 2.7
+  detector_model:
+    path: models/face_detection_yunet_2023mar.onnx
+    sha256: 8f2383e4dd3cfbb4553ea8718107fc0423210dc964f9f4280604804ed2552fa4
+  detector_input_width: 320   # frames are downscaled to this width for detection
+  detector_score: 0.7
+  box_to_training_geometry: [1.17, 0.90, 0.074]   # YuNet box -> RetinaFace-style box (w, h, dy)
   input_size: [80, 80]
   min_face_px: 80
   min_brightness: 40
+  max_brightness: 230
   min_blur_variance: 60
+runtime:
+  onnx_threads: 4         # Raspberry Pi 3 has 4 cores
+  camera_width: 640
+  camera_height: 480
 logging:
   store_face_images: false
+  attempts_log: logs/attempts.jsonl

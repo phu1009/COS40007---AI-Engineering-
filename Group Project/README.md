@@ -17,6 +17,9 @@ docs/                Project documentation, architecture diagram, Jira import, t
 src/preprocessing/   Shared preprocessing (used for training and on the Pi)
 src/training/        Training and evaluation code
 src/edge/            Raspberry Pi service: capture, inference, decision engine
+models/              Model cards and licences (weights come from GitHub Releases, not git)
+scripts/             Raspberry Pi setup and autostart scripts
+tools/               Model export tools (run on a PC)
 src/backend/         Backend authentication API
 web/                 Web login prototype
 tests/               Automated tests
@@ -41,3 +44,4 @@ tests/               Automated tests
 - Jira board: https://group3-cos40007.atlassian.net/jira/software/projects/SCRUM/boards/1
 - Project documentation: `docs/Project_Documentation.docx` (Markdown copy: `docs/project-documentation.md`)
 - Group Task 1 report: `docs/task1/`
+- Raspberry Pi edge service – setup and run guide: `docs/edge/raspberry-pi-3-setup.md`
